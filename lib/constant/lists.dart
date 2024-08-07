@@ -8,6 +8,15 @@ import 'package:school_management_system/pages/categories/marks_page.dart';
 import '../pages/categories/classroom_page.dart';
 import '../pages/categories/fees_page.dart';
 
+const List CTG_image = [
+  'assets/image/classroom.png',
+  'assets/image/assignment.png',
+  'assets/image/attendance.png',
+  'assets/image/marks.png',
+  'assets/image/lectures.png',
+  'assets/image/fees.png',
+  'assets/image/library.png',
+];
 const List CTG_icons = [
   Icons.dvr,
   Icons.auto_stories,
