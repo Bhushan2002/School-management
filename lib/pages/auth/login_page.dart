@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-const String login = "/login" ;
+
+const String login = "/login";
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:school_management_system/pages/auth/login_page.dart';
 
 AppBar appBar(BuildContext context, GlobalKey<ScaffoldState> key) {
   // final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -42,7 +43,7 @@ TextStyle custTextStyle(double size, FontWeight w) {
   return GoogleFonts.lato(fontSize: size, fontWeight: w, color: Colors.black);
 }
 
-Widget custDrawer() {
+Widget custDrawer(BuildContext context) {
   return Drawer(
     width: 350,
     child: Stack(
@@ -141,54 +142,13 @@ Widget custDrawer() {
                     Divider(
                       height: 20,
                     ),
-                    ListTile(
-                      leading: Icon(Icons.favorite),
-                      title: Text(
-                        "Favorites",
-                        style: custTextStyle(18, FontWeight.normal),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.notifications),
-                      title: Text(
-                        "Notifications",
-                        style: custTextStyle(18, FontWeight.normal),
-                      ),
-                      trailing: Container(
-                        height: 10,
-                        width: 10,
-                        decoration: BoxDecoration(color: Colors.redAccent[300]),
-                        child: Text("10"),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.feedback),
-                      title: Text(
-                        "Feedback",
-                        style: custTextStyle(18, FontWeight.normal),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.color_lens),
-                      title: Text(
-                        "change theme",
-                        style: custTextStyle(18, FontWeight.normal),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.key_rounded),
-                      title: Text(
-                        "change password",
-                        style: custTextStyle(18, FontWeight.normal),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.logout),
-                      title: Text(
-                        "Log out",
-                        style: custTextStyle(18, FontWeight.normal),
-                      ),
-                    ),
+                    drawerListTiles(Icons.favorite, "favorite", () {}),
+                    drawerListTiles(Icons.notifications, "Notification", () {}),
+                    drawerListTiles(Icons.feedback, "Feedback", () {}),
+                    drawerListTiles(Icons.color_lens, "change theme", () {}),
+                    drawerListTiles(Icons.key, "change password", () {}),
+                    drawerListTiles(Icons.login, "login",
+                        () => Navigator.pushNamed(context, login)),
                   ],
                 )
               ],
@@ -196,6 +156,19 @@ Widget custDrawer() {
           ),
         ),
       ],
+    ),
+  );
+}
+
+Widget drawerListTiles(IconData icon, title, VoidCallback? func) {
+  return GestureDetector(
+    onTap: func,
+    child: ListTile(
+      leading: Icon(icon),
+      title: Text(
+        title,
+        style: custTextStyle(18, FontWeight.normal),
+      ),
     ),
   );
 }

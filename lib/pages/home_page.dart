@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        endDrawer: custDrawer(),
+        endDrawer: custDrawer(context),
         key: scaffoldKey,
         backgroundColor: Color(0xffF5F5F5),
         appBar: appBar(context, scaffoldKey),
